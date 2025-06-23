@@ -1,42 +1,124 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App {
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 24px 24px 24px;
+    transition: background 0.3s, color 0.3s;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App.dark {
+    background: #23272f;
+    color: #f4f4f4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
-.card {
-  padding: 2em;
+form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
 }
 
-.read-the-docs {
-  color: #888;
+input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus {
+    border: 1.5px solid #007bff;
+}
+
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s;
+}
+
+.App.dark li {
+    background: #2d323b;
+}
+
+li button {
+    margin-left: 8px;
+    padding: 5px 10px;
+    font-size: 0.95rem;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.toggle-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.toggle-btn:hover {
+    background: #444;
+}
+
+.App.dark .toggle-btn {
+    background: #fff;
+    color: #222;
+}
+
+.App.dark .toggle-btn:hover {
+    background: #e2e2e2;
 }

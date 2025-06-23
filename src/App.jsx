@@ -1,46 +1,55 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import Form from './components/Form';
+import List from './components/List';
+import './App.css';
 
 function App() {
-  const [contador, setcontador] = useState(0)
-  const [encendido, setEncendido] = useState(false)
-  const Incrementar = () => {
-    setcontador(contador + 1)
-  }
-  const Decrementar = () => {
-    setcontador(contador - 1)
-  }
-  const Resetear = () => {
-    setcontador(0)
-  }
-  const Toggle = () => {
-    setEncendido(!encendido)
-  }
+  const [items, setItems] = useState([]);
+  const [itemToEdit, setItemToEdit] = useState(null);
+
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+    setItems(storedItems);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
+
+  const addOrUpdateItem = (value) => {
+    if (itemToEdit) {
+      setItems(items.map(item => 
+        item.id === itemToEdit.id ? { ...item, value } : item
+      ));
+      setItemToEdit(null);
+    } else {
+      setItems([...items, { id: Date.now(), value }]);
+    }
+  };
+
+  const deleteItem = (id) => {
+    setItems(items.filter(item => item.id !== id));
+  };
+
+  const editItem = (item) => {
+    setItemToEdit(item);
+  };
 
   return (
-    <>
-      <div
-        style={{
-          textAlign: 'center',
-          padding: '20px',
-          border: '1px solid #ccc',
-          borderRadius: '8px',
-          background: encendido ? '#222' : '#fff', // Fondo negro si está encendido
-          color: encendido ? '#fff' : '#000',      // Texto blanco si está encendido
-          transition: 'background 0.3s, color 0.3s'
-        }}
-      >
-        <h2>Contador</h2>
-        <h3 style={{fontSize: '2.5rem',marginBottom: '10px 0'}}>{contador}</h3>
-        <button onClick={Incrementar}>Incrementar</button>
-        <button onClick={Decrementar}>Decrementar</button>
-        <button onClick={Resetear}>Resetear</button>
-        <button onClick={Toggle}>
-          {encendido ? 'Apagar' : 'Encender'}
-        </button>
-      </div>
-    </>
-  )
+    <div className="App">
+      <h1>CRUD con LocalStorage</h1>
+      <Form 
+        addOrUpdateItem={addOrUpdateItem} 
+        itemToEdit={itemToEdit} 
+      />
+      <List 
+        items={items} 
+        deleteItem={deleteItem} 
+        editItem={editItem} 
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
