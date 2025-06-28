@@ -1,124 +1,268 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f4f4f4;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #eaf0fa;
+  min-height: 100vh;
 }
 
 .App {
-    max-width: 400px;
-    width: 100%;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 32px 24px 24px 24px;
-    transition: background 0.3s, color 0.3s;
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 32px 24px 24px 24px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .App.dark {
-    background: #23272f;
-    color: #f4f4f4;
+  background: #23272f;
+  color: #f4f4f4;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 24px;
-    font-size: 2rem;
-    letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
 form {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
 input[type="text"] {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    font-size: 1rem;
-    outline: none;
-    transition: border 0.2s;
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
 }
 
 input[type="text"]:focus {
-    border: 1.5px solid #007bff;
+  border: 1.5px solid #007bff;
 }
 
 button {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
 }
 
 button:hover {
-    background: #0056b3;
+  background: #0056b3;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-    background: #f8f9fa;
-    margin-bottom: 10px;
-    padding: 10px 12px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: background 0.2s;
+  background: #f8f9fa;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s;
 }
 
 .App.dark li {
-    background: #2d323b;
+  background: #2d323b;
 }
 
 li button {
-    margin-left: 8px;
-    padding: 5px 10px;
-    font-size: 0.95rem;
+  margin-left: 8px;
+  padding: 5px 10px;
+  font-size: 0.95rem;
 }
 
 .toggle-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 .toggle-btn {
-    background: #222;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 6px 18px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: background 0.2s;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .toggle-btn:hover {
-    background: #444;
+  background: #444;
 }
 
 .App.dark .toggle-btn {
-    background: #fff;
-    color: #222;
+  background: #fff;
+  color: #222;
 }
 
 .App.dark .toggle-btn:hover {
-    background: #e2e2e2;
+  background: #e2e2e2;
+}
+
+.main-bg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 0;
+}
+
+.main-title {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(52, 152, 219, 0.08);
+  padding: 14px 36px;
+  margin-bottom: 32px;
+  font-size: 2.1rem;
+  font-weight: bold;
+  text-align: center;
+  color: #2563eb;
+  letter-spacing: 1px;
+}
+
+.card {
+  background: #fafdff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(52, 152, 219, 0.10);
+  padding: 30px 26px 26px 26px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 440px;
+  border: 1.5px solid #e3eafc;
+}
+
+.card-title {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 1.28rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.form-eval {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.form-eval input[type="text"],
+.form-eval input[type="number"] {
+  padding: 11px 13px;
+  border: 1.5px solid #b6cdfa;
+  border-radius: 7px;
+  font-size: 1rem;
+  outline: none;
+  background: #f4f8ff;
+  transition: border 0.2s, background 0.2s;
+}
+
+.form-eval input:focus {
+  border: 1.5px solid #2563eb;
+  background: #e3eafc;
+}
+
+.form-eval button {
+  background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
+  color: #fff;
+  border: none;
+  padding: 11px 0;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-top: 7px;
+  box-shadow: 0 1px 4px rgba(52, 152, 219, 0.08);
+}
+
+.form-eval button:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.13);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-eval {
+  background: #f4f8ff;
+  margin-bottom: 15px;
+  padding: 15px 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 1px 6px rgba(52, 152, 219, 0.06);
+  font-size: 1rem;
+  border: 1px solid #e3eafc;
+}
+
+.item-eval .badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #22d3ee 0%, #38bdf8 100%);
+  color: #fff;
+  border-radius: 8px;
+  padding: 2px 12px;
+  font-size: 0.87rem;
+  margin-left: 10px;
+  margin-top: 4px;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(34, 211, 238, 0.10);
+}
+
+.item-eval button {
+  margin-left: 0;
+  margin-top: 4px;
+  padding: 7px 18px;
+  font-size: 0.97rem;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  display: block;
+}
+
+.btn-edit {
+  background: #facc15;
+  color: #222;
+  margin-bottom: 7px;
+}
+
+.btn-edit:hover {
+  background: #fde047;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #b91c1c;
 }

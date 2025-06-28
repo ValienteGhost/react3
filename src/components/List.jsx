@@ -3,19 +3,30 @@ import Item from './Item';
 
 // Componente que muestra la lista de ítems
 function List({ items, deleteItem, editItem }) {
-return (
+  return (
     <ul>
-      {/* Recorre el array de ítems y renderiza un componente Item por cada uno */}
-    {items.map((item) => (
-        <Item
-          key={item.id} // Clave única para cada ítem
-          item={item} // Pasa el ítem como prop
-          deleteItem={deleteItem} // Función para eliminar
-          editItem={editItem} // Función para editar
-        />
-    ))}
+      {items.length === 0 ? (
+        <li style={{
+          background: 'none',
+          boxShadow: 'none',
+          border: 'none',
+          color: '#888',
+          textAlign: 'center'
+        }}>
+          No hay evaluaciones guardadas.
+        </li>
+      ) : (
+        items.map((item) => (
+          <Item
+            key={item.id}
+            item={item}
+            deleteItem={deleteItem}
+            editItem={editItem}
+          />
+        ))
+      )}
     </ul>
-);
+  );
 }
 
 export default List;
