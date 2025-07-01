@@ -6,15 +6,25 @@ import './App.css';
 function App() {
   const [items, setItems] = useState([]);
   const [itemToEdit, setItemToEdit] = useState(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem('items')) || [];
-    setItems(storedItems);
+    try {
+      const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+      setItems(storedItems);
+      setIsInitialized(true);
+    } catch (error) {
+      console.error('Error al cargar datos:', error);
+      setItems([]);
+      setIsInitialized(true);
+    }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items));
-  }, [items]);
+    if (isInitialized) {
+      localStorage.setItem('items', JSON.stringify(items));
+    }
+  }, [items, isInitialized]);
 
   const addOrUpdateItem = (value) => {
     if (itemToEdit) {
